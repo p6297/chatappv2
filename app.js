@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const UserRoute = require("./routes/UserRoute");
 
 
 const app = express();
@@ -13,6 +14,8 @@ mongoose.connect(mongourl,{
 })
 .then((res)=> console.log("db connected"))
 .catch((err)=> console.log(err));
+
+app.use("/",UserRoute);
 
 
 
